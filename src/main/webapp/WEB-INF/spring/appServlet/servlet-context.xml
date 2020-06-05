@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+		<context:component-scan base-package="es.toni.setup.makeup.controllers" />
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+	
+    <sec:global-method-security secured-annotations="enabled" />
+
+	<!-- Controla las peticiones HTTP GET /recursos/** para los recursos estáticos 
+		(ej: imagenes), estos se almacenan en el directorio ${webappRoot}/mis-recursos -->
+	<resources mapping="/recursos/**" location="/mis-recursos/"
+		cache-period="10000" />
+		
+			<!-- Declaramos el mapeo de las URL para cargar las vistas inmediatamente 
+		(sin necesidad de un controller) -->
+	<view-controller path="/mi_pagina_error_403" view-name="mi_pagina_error_403" />
+	
+    <!-- Para resolver vistas Tiles -->
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="order" value="1" />
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	</beans:bean>
+	
+    <!-- Configuracion del layout Tiles -->
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+</beans:beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+ 	<!-- La definición principal del layout o root -->
+	<definition name="definicion.principal" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+		
+    <!-- Esta es una definición Tiles hija que extiende de la principal/padre "definicion.principal" 
+         sobreescribe los componentes "title" y "body" -->
+    <definition name="inicio" extends="definicion.principal">
+		<put-attribute name="title" value="Acceso permitido" />
+		<put-attribute name="body" value="/WEB-INF/views/inicio.jsp" />
+	</definition>
+	
+	<definition name="mi_pagina_login" extends="definicion.principal">
+		<put-attribute name="title" value="Inicio de sesión" />
+		<put-attribute name="body" value="/WEB-INF/views/mi_pagina_login.jsp" />
+	</definition>
+
+	<definition name="mi_pagina_error_403" extends="definicion.principal">
+		<put-attribute name="title" value="Error: Acceso Denegado!" />
+		<put-attribute name="body" value="/WEB-INF/views/mi_pagina_error_403.jsp" />
+	</definition>
+	
+	<definition name="categoria/listado" extends="definicion.principal">
+		<put-attribute name="title" value="Listado de Categorias" />
+		<put-attribute name="body" value="/WEB-INF/views/categoria/listado.jsp" />
+	</definition>
+
+</tiles-definitions>
