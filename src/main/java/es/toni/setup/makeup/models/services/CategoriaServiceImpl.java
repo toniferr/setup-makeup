@@ -24,9 +24,14 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	public List<Categoria> findCategoriaPrimariasByUser(Usuario usuario) {
 		return categoriaDao.findCategoriaPrimariasByUser(usuario);
 	}
-
+	
 	@Override
-	public Categoria findById(int id) {
+	public List<Categoria> findCategoriaSegundariasByUser(Usuario usuario, Long categoriaId) {
+		return categoriaDao.findCategoriaSegundariasByUser(usuario, categoriaId);
+	}
+	
+	@Override
+	public Categoria findById(Long id) {
 		return categoriaDao.findById(id);
 	}
 
@@ -39,5 +44,4 @@ public class CategoriaServiceImpl implements ICategoriaService {
 	public void delete(Categoria categoria) {
 		categoriaDao.delete(categoria);
 	}
-
 }

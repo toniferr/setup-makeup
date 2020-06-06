@@ -42,8 +42,11 @@ public class CategoriaController {
     @RequestMapping(value = "/listado.htm", method = RequestMethod.GET)
     @ModelAttribute("categorias")
     @Secured("ROLE_ADMIN")
-    public List<Categoria> listado(Model modelo) throws Exception {
-        modelo.addAttribute("titulo", "Listado de categorias");
+    public List<Categoria> listado(@RequestParam(value = "categoriaId", required = false, defaultValue = "0") Long idCategoriaPadre,
+    		Model modelo) {
+    	
+    	modelo.addAttribute("titulo", "Listado de categorias");
+    	modelo.addAttribute("categoriaId", idCategoriaPadre);
 
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username;
@@ -53,21 +56,30 @@ public class CategoriaController {
 		  username = principal.toString();
 		}
 		Usuario usuario = userService.findByUsername(username);
-		return categoriaService.findCategoriaPrimariasByUser(usuario);
+		
+		if (idCategoriaPadre > 0) {
+			return categoriaService.findCategoriaSegundariasByUser(usuario, idCategoriaPadre);
+		} else {
+			return categoriaService.findCategoriaPrimariasByUser(usuario);
+		}
     }
 
 
     @RequestMapping(value = "/form.htm", method = RequestMethod.GET)
     @ModelAttribute("categoria")
     @Secured("ROLE_ADMIN")
-    public Categoria setupForm(@RequestParam(value = "id", required = false, defaultValue = "0") int id) {
+    public Categoria setupForm(@RequestParam(value = "categoriaId", required = false, defaultValue = "0") Long idCategoriaPadre, 
+    		@RequestParam(value = "id", required = false, defaultValue = "0") Long id) {
     	Categoria categoria = null;
         if (id > 0) {
         	categoria = categoriaService.findById(id);
         } else {
         	categoria = new Categoria();
+        	if (idCategoriaPadre > 0) {
+        		Categoria categoriaPadre = categoriaService.findById(idCategoriaPadre);
+        		categoria.setCategoriaPadre(categoriaPadre);
+        	}
         }
-
         return categoria;
     }
 
@@ -87,7 +99,7 @@ public class CategoriaController {
 
     @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/eliminar.htm", method = RequestMethod.GET)
-    public String eliminar(@RequestParam("id") int id) {
+    public String eliminar(@RequestParam("id") Long id) {
     	Categoria categoria = categoriaService.findById(id);
 
         if (null != categoria) {

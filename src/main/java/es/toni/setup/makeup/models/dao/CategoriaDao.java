@@ -24,12 +24,24 @@ public class CategoriaDao implements ICategoriaDao {
 	
 	@Override
 	public List<Categoria> findCategoriaPrimariasByUser(Usuario usuario) {
-		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Categoria.class).add(Restrictions.eq("usuario", usuario)).add(Restrictions.isNull("categoriaPadre"));
+		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Categoria.class).add(Restrictions.and(
+				Restrictions.eq("usuario", usuario),
+				Restrictions.isNull("categoriaPadre")
+				));
+		return (List<Categoria>)this.hibernateTemplate.findByCriteria(detachedCriteria);
+	}
+	
+	@Override
+	public List<Categoria> findCategoriaSegundariasByUser(Usuario usuario, Long categoriaId) {
+		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Categoria.class).add(Restrictions.and(
+				Restrictions.eq("usuario", usuario),
+				Restrictions.eq("categoriaPadre.id", categoriaId)
+				));
 		return (List<Categoria>)this.hibernateTemplate.findByCriteria(detachedCriteria);
 	}
 
 	@Override
-	public Categoria findById(Integer id) {
+	public Categoria findById(Long id) {
 		return (Categoria) hibernateTemplate.get(Categoria.class, id);
 	}
 

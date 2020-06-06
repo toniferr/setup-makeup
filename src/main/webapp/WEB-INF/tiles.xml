@@ -33,5 +33,10 @@
 		<put-attribute name="title" value="Listado de Categorias" />
 		<put-attribute name="body" value="/WEB-INF/views/categoria/listado.jsp" />
 	</definition>
+	
+	<definition name="categoria/form" extends="definicion.principal">
+		<put-attribute name="title" value="Listado de Categorias" />
+		<put-attribute name="body" value="/WEB-INF/views/categoria/form.jsp" />
+	</definition>
 
 </tiles-definitions>

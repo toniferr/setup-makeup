@@ -11,7 +11,9 @@ public interface ICategoriaService {
 	
     public List<Categoria> findCategoriaPrimariasByUser(Usuario usuario);
 
-    public Categoria findById(int categoriaId);
+	public List<Categoria> findCategoriaSegundariasByUser(Usuario usuario, Long categoriaId);
+
+    public Categoria findById(Long categoriaId);
 
     public void save(Categoria categoria);
 

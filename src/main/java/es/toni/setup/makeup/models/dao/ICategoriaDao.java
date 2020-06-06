@@ -9,13 +9,14 @@ public interface ICategoriaDao {
 
 	public List<Categoria> findAll();
 	
-	public List<Categoria> findCategoriaPrimariasByUser(Usuario usuario);
+	public List<Categoria> findCategoriaPrimariasByUser(Usuario usuario);	
 
-    public Categoria findById(Integer id);
+	public List<Categoria> findCategoriaSegundariasByUser(Usuario usuario, Long categoriaId);
+
+    public Categoria findById(Long id);
 
     public void save(Categoria categoria);
 
     public void delete(Categoria categoria);
-
     
 }

@@ -3,9 +3,9 @@ package es.toni.setup.makeup.models.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,18 +23,22 @@ public class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     
     @NotNull
     private String nombre;
-    
-    @OneToMany(mappedBy="categoriaPadre")
+
+    /********** relacion recursiva **********/
+
+    @OneToMany(mappedBy = "categoriaPadre")
     private Set<Categoria> subcategorias;
     
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne(cascade={CascadeType.ALL})    
+    @JoinColumn(name = "padre_id")
     private Categoria categoriaPadre;
+        
+    /****************************************/
     
     @OneToMany(mappedBy="categoria")
     private Set<Miembro> miembros;

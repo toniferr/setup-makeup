@@ -11,7 +11,7 @@
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<p>
 					<a class="btn btn-default"
-						href="<c:url value="/categoria/form.htm"/>" 
+						href="<c:url value="/categoria/form.htm"><c:param name = "categoriaId" value = "${categoriaId}"/></c:url>" 
 						role="button">Agregar categoria (+)</a>
 				</p>
 			</sec:authorize>
@@ -22,7 +22,7 @@
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<p>
 					<a class="btn btn-default" 
-						href="<c:url value="/miembro/form.htm"/>"
+						href="<c:url value="/miembro/form.htm"><c:param name = "categoriaId" value = "${categoriaId}"/></c:url>"
 						role="button">Agregar miembro (+)</a>
 				</p>
 			</sec:authorize>
@@ -38,7 +38,7 @@
 				<div class="col-md-4" style='text-align: center;'>
 					<div class="course-listing">
 						<div class="row">
-							<a href="product.html">
+							<a href="<c:url value="/categoria/listado.htm"><c:param name = "categoriaId" value = "${categoria.id}"/></c:url>" >
 								<div class="col-lg-12">
 									<div class="course-listing-title">
 										<h3><c:out value="${categoria.nombre}" /></h3>
