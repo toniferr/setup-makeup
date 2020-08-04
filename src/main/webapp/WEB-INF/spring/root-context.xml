@@ -8,7 +8,7 @@
 
 	<!-- Escanea o busca en el package base de la aplicación clases beans anotados 
 		con @Components, @Repository, @Service -->
-	<context:component-scan base-package="es.toni.setup.makeup.models" />
+	<context:component-scan base-package="es.toni.setup.makeup" />
 
 	<!-- Activa las anotaciones para ser detectadas en las clases bean de Spring: 
 		@Required y @Autowired, @Resource. -->

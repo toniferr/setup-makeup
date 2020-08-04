@@ -1,8 +1,8 @@
-package es.toni.setup.makeup.models.services;
+package es.toni.setup.makeup.services;
 
 import java.util.List;
 
-import es.toni.setup.makeup.models.entity.Miembro;
+import es.toni.setup.makeup.entity.Miembro;
 
 public interface IMiembroService {
 	

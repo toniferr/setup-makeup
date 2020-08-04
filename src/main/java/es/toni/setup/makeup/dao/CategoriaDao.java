@@ -1,4 +1,4 @@
-package es.toni.setup.makeup.models.dao;
+package es.toni.setup.makeup.dao;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import es.toni.setup.makeup.models.entity.Categoria;
-import es.toni.setup.makeup.models.entity.Usuario;
+import es.toni.setup.makeup.entity.Categoria;
+import es.toni.setup.makeup.entity.Usuario;
 
 @Repository
 public class CategoriaDao implements ICategoriaDao {

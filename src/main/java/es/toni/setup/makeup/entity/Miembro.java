@@ -1,4 +1,4 @@
-package es.toni.setup.makeup.models.entity;
+package es.toni.setup.makeup.entity;
 
 import java.io.Serializable;
 

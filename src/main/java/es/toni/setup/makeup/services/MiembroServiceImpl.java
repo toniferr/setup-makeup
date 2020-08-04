@@ -1,12 +1,12 @@
-package es.toni.setup.makeup.models.services;
+package es.toni.setup.makeup.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.toni.setup.makeup.models.dao.IMiembroDao;
-import es.toni.setup.makeup.models.entity.Miembro;
+import es.toni.setup.makeup.dao.IMiembroDao;
+import es.toni.setup.makeup.entity.Miembro;
 
 @Service
 public class MiembroServiceImpl implements IMiembroService {

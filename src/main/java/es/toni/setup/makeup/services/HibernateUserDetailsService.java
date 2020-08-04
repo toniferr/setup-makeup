@@ -1,4 +1,4 @@
-package es.toni.setup.makeup.models.services;
+package es.toni.setup.makeup.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.toni.setup.makeup.models.dao.IUserDao;
-import es.toni.setup.makeup.models.dao.UsuarioDaoHibernateTemplate;
-import es.toni.setup.makeup.models.entity.Role;
-import es.toni.setup.makeup.models.entity.Usuario;
+import es.toni.setup.makeup.dao.IUserDao;
+import es.toni.setup.makeup.dao.UsuarioDaoHibernateTemplate;
+import es.toni.setup.makeup.entity.Role;
+import es.toni.setup.makeup.entity.Usuario;
 
 @Service("hibernateUserDetailsService")
 public class HibernateUserDetailsService implements UserDetailsService{

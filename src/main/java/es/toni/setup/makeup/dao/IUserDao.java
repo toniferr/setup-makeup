@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.toni.setup.makeup.models.dao;
+package es.toni.setup.makeup.dao;
 
 import java.util.List;
 
-import es.toni.setup.makeup.models.entity.Usuario;
+import es.toni.setup.makeup.entity.Usuario;
 
 /**
  *

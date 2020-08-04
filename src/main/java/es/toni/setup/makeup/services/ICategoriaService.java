@@ -1,9 +1,9 @@
-package es.toni.setup.makeup.models.services;
+package es.toni.setup.makeup.services;
 
 import java.util.List;
 
-import es.toni.setup.makeup.models.entity.Categoria;
-import es.toni.setup.makeup.models.entity.Usuario;
+import es.toni.setup.makeup.entity.Categoria;
+import es.toni.setup.makeup.entity.Usuario;
 
 public interface ICategoriaService {
 

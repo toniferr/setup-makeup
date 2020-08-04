@@ -1,8 +1,8 @@
-package es.toni.setup.makeup.models.dao;
+package es.toni.setup.makeup.dao;
 
 import java.util.List;
 
-import es.toni.setup.makeup.models.entity.Miembro;
+import es.toni.setup.makeup.entity.Miembro;
 
 public interface IMiembroDao {
 	

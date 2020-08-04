@@ -1,10 +1,10 @@
-package es.toni.setup.makeup.models.services;
+package es.toni.setup.makeup.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.toni.setup.makeup.models.dao.IUserDao;
-import es.toni.setup.makeup.models.entity.Usuario;
+import es.toni.setup.makeup.dao.IUserDao;
+import es.toni.setup.makeup.entity.Usuario;
 
 @Service
 public class UserServiceImpl implements IUserService {

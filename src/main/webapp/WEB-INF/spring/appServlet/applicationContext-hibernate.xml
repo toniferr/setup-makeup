@@ -24,10 +24,10 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>es.toni.setup.makeup.models.entity.Usuario</value>
-				<value>es.toni.setup.makeup.models.entity.Role</value>
-				<value>es.toni.setup.makeup.models.entity.Categoria</value>
-				<value>es.toni.setup.makeup.models.entity.Miembro</value>
+				<value>es.toni.setup.makeup.entity.Usuario</value>
+				<value>es.toni.setup.makeup.entity.Role</value>
+				<value>es.toni.setup.makeup.entity.Categoria</value>
+				<value>es.toni.setup.makeup.entity.Miembro</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

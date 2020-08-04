@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
-import es.toni.setup.makeup.models.entity.Categoria;
-import es.toni.setup.makeup.models.entity.Usuario;
-import es.toni.setup.makeup.models.services.ICategoriaService;
-import es.toni.setup.makeup.models.services.IUserService;
+import es.toni.setup.makeup.entity.Categoria;
+import es.toni.setup.makeup.entity.Usuario;
+import es.toni.setup.makeup.services.ICategoriaService;
+import es.toni.setup.makeup.services.IUserService;
 
 @Controller
 @RequestMapping("/categoria")
