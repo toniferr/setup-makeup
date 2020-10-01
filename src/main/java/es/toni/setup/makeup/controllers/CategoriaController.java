@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,9 +40,9 @@ public class CategoriaController {
 		return "inicio";
     }
 
-    @RequestMapping(value = "/listado", method = RequestMethod.GET)
+    @GetMapping(value = "/listado")
     @ModelAttribute("categorias")
-    @Secured("ROLE_ADMIN")
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
     public List<Categoria> listado(@RequestParam(value = "categoriaId", required = false, defaultValue = "0") Long idCategoriaPadre,
     		Model modelo) {
     	
@@ -65,9 +66,9 @@ public class CategoriaController {
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @GetMapping(value = "/add")
     @ModelAttribute("categoria")
-    @Secured("ROLE_ADMIN")
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
     public Categoria setupForm(@RequestParam(value = "categoriaId", required = false, defaultValue = "0") Long idCategoriaPadre, 
     		@RequestParam(value = "id", required = false, defaultValue = "0") Long id) {
     	Categoria categoria = null;
@@ -83,13 +84,13 @@ public class CategoriaController {
         return categoria;
     }
 
-    @Secured("ROLE_ADMIN")
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
+    @PostMapping(value = "/add")
     public String processSubmit(@Valid Categoria categoria,
             BindingResult result, SessionStatus status) {
 
         if (result.hasErrors()) {
-            return "categoria/form";
+            return "categoria/add";
         } else {
         	categoriaService.save(categoria);
             status.setComplete();
@@ -97,8 +98,8 @@ public class CategoriaController {
         }
     }
 
-    @Secured("ROLE_ADMIN")
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
+    @GetMapping(value = "/delete")
     public String eliminar(@RequestParam("id") Long id) {
     	Categoria categoria = categoriaService.findById(id);
 

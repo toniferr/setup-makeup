@@ -35,7 +35,7 @@
 	</definition>
 	
 	<definition name="categoria/add" extends="definicion.principal">
-		<put-attribute name="title" value="Listado de Categorias" />
+		<put-attribute name="title" value="Formulario de Categoria" />
 		<put-attribute name="body" value="/WEB-INF/views/categoria/add.jsp" />
 	</definition>
 
