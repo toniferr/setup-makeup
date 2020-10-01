@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.toni.setup.makeup.dao.IUserDao;
-import es.toni.setup.makeup.dao.UsuarioDaoHibernateTemplate;
+import es.toni.setup.makeup.dao.impl.UsuarioDaoHibernateTemplate;
 import es.toni.setup.makeup.entity.Role;
 import es.toni.setup.makeup.entity.Usuario;
 

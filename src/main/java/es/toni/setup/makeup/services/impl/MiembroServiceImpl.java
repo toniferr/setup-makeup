@@ -1,4 +1,4 @@
-package es.toni.setup.makeup.services;
+package es.toni.setup.makeup.services.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import es.toni.setup.makeup.dao.IMiembroDao;
 import es.toni.setup.makeup.entity.Miembro;
+import es.toni.setup.makeup.services.IMiembroService;
 
 @Service
 public class MiembroServiceImpl implements IMiembroService {

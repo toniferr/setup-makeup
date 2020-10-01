@@ -9,7 +9,7 @@
 	</h1>
 </div>
 
-<a class="btn btn-default" href="<c:url value="/categoria/listado.htm"/>"
+<a class="btn btn-default" href="<c:url value="/categoria/listado"/>"
 	role="button">Volver</a>
 
 <div class="panel panel-primary" style="margin-top: 1%;">

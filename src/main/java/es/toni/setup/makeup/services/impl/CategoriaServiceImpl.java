@@ -1,4 +1,4 @@
-package es.toni.setup.makeup.services;
+package es.toni.setup.makeup.services.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import es.toni.setup.makeup.dao.ICategoriaDao;
 import es.toni.setup.makeup.entity.Categoria;
 import es.toni.setup.makeup.entity.Usuario;
+import es.toni.setup.makeup.services.ICategoriaService;
 
 @Service
 public class CategoriaServiceImpl implements ICategoriaService {

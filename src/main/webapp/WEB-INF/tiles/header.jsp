@@ -21,7 +21,7 @@
 			</ul>
 			<ul class="nav navbar-nav">
 				<sec:authorize access="isAuthenticated()">
-					<li><a href="<%=request.getContextPath()%>/categoria/listado.htm">Listado</a></li>
+					<li><a href="<%=request.getContextPath()%>/categoria/listado">Listado</a></li>
 				</sec:authorize>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

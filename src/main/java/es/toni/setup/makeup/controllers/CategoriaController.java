@@ -39,7 +39,7 @@ public class CategoriaController {
 		return "inicio";
     }
 
-    @RequestMapping(value = "/listado.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/listado", method = RequestMethod.GET)
     @ModelAttribute("categorias")
     @Secured("ROLE_ADMIN")
     public List<Categoria> listado(@RequestParam(value = "categoriaId", required = false, defaultValue = "0") Long idCategoriaPadre,
@@ -65,7 +65,7 @@ public class CategoriaController {
     }
 
 
-    @RequestMapping(value = "/form.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     @ModelAttribute("categoria")
     @Secured("ROLE_ADMIN")
     public Categoria setupForm(@RequestParam(value = "categoriaId", required = false, defaultValue = "0") Long idCategoriaPadre, 
@@ -84,7 +84,7 @@ public class CategoriaController {
     }
 
     @Secured("ROLE_ADMIN")
-    @RequestMapping(value = "/form.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processSubmit(@Valid Categoria categoria,
             BindingResult result, SessionStatus status) {
 
@@ -93,12 +93,12 @@ public class CategoriaController {
         } else {
         	categoriaService.save(categoria);
             status.setComplete();
-            return "redirect:listado.htm";
+            return "redirect:listado";
         }
     }
 
     @Secured("ROLE_ADMIN")
-    @RequestMapping(value = "/eliminar.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String eliminar(@RequestParam("id") Long id) {
     	Categoria categoria = categoriaService.findById(id);
 
@@ -106,7 +106,7 @@ public class CategoriaController {
         	categoriaService.delete(categoria);
         }
 
-        return "redirect:listado.htm";
+        return "redirect:listado";
     }
 
     @ModelAttribute("titulo")
